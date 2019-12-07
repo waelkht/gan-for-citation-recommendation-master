@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# DBLP
+for tmp in dblp aan
+do
+    for Y in joined merged paper_title paper_author paper_venue paper_bow paper_title_vec paper_abstract_vec paper_author_authors paper_year
+    do
+        rm -r data/$tmp/$Y
+        rm -r arga/result/$tmp/$Y
+        rm -r arga2/result/$tmp/$Y
+    done
+done
+
+for Y in adj rec emb
+do
+    rm arga/tmp/$Y
+    rm arga2/tmp/$Y
+done
+
+./init

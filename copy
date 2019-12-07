@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [ $1 == "DBLP" ]; then
+    tmp="dblp";
+elif [ $1 == "AAN" ]; then
+    tmp="aan";
+fi
+
+for name in paper_title paper_venue paper_author paper_bow paper_title_vec paper_abstract_vec joined paper_author_authors paper_year
+do
+    cp -r Datasets/$1/processed/$name/ data/$tmp/
+    cp Datasets/$1/processed/train_eval_test_dict.pkl data/$tmp/$name/$name.train_eval_test_dict.pkl
+    cp Datasets/$1/processed/adj_matrix.pkl data/$tmp/$name/$name.adj.pkl
+done
